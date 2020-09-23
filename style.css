@@ -1,0 +1,22 @@
+body {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  background-color: hotpink;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-flow: row;
+  height: 50vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  font-size: 3rem;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 5rem;
+}
