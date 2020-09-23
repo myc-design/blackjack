@@ -32,7 +32,6 @@ foreach($values as $value){
     $shuffledArray[] = $value;
     $sliceFour = array_slice($shuffledArray, 0, 2);
 }
-var_dump($sliceFour);
     return $sliceFour;
 }
 
