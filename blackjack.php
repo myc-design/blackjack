@@ -1,6 +1,8 @@
 
 <?php
+
 $suite = ['♥️', '♠️', '♣️', '♦️'];
+
 $values = [
         'ace' => 11,
         2 => 2,
@@ -17,7 +19,12 @@ $values = [
         'king' => 10
     ];
 
-//Shuffle cards
+/**
+ * Shuffle cards
+ *
+ * @param  array $values
+ * @return array
+ */
 
 function shufffleCards($values){
 shuffle($values);
@@ -25,6 +32,7 @@ foreach($values as $value){
     $shuffledArray[] = $value;
     $sliceFour = array_slice($shuffledArray, 0, 2);
 }
+var_dump($sliceFour);
     return $sliceFour;
 }
 
@@ -33,12 +41,20 @@ foreach($values as $value){
 $player1 = shufffleCards($values);
 $player2 = shufffleCards($values);
 
-//Total of random 2 cards
+//Add the 2 random cards together
 
 $total1 = $player1[0] + $player1[1];
 $total2 = $player2[0] + $player2[1];
 
-//Declare winner
+
+/**
+ * Compare two numbers and return the greatest
+ *
+ * @param  int $total1
+ * @param  int $total2
+ * @return string
+ */
+
 function winner($total1, $total2){
 if($total1 > $total2){
   return 'PLAYER 1!';
@@ -49,7 +65,12 @@ return 'PLAYER 2!';
 $end = winner($total1, $total2);
 
 
-//Shuffle Suits 
+/**
+ * Shuffle suite 
+ *
+ * @param  array  $suite
+ * @return string
+ */
 
 function shuffleSuit($suite){
 $mixSuite = array_rand($suite);
@@ -75,24 +96,22 @@ $shuffle4 = shuffleSuit($suite);
 </head>
 <body>
     <h1>BLACK JACK</h1>
-<div class="container">
-
-<div class=" card player1">
-        <h4>PLAYER 1: </h4>
-        <p> <?php echo "$player1[0] $shuffle1"; ?></p>
-        <p> <?php echo "$player1[1] $shuffle2"; ?></p>
-        <p>Total: <?php echo "$total1"; ?></p>
-    
-    </div>
-<div class="card player2">
-    <h4>PLAYER 2: </h4>
-        <p> <?php echo "$player2[0] $shuffle3"; ?></p>
-        <p> <?php echo "$player2[1] $shuffle4"; ?></p>
-        <p>Total: <?php echo "$total2"; ?></p>
-    </div>
+    <div class="container">
+        <div class=" card player1">
+            <h4>PLAYER 1: </h4>
+            <p> <?php echo "$player1[0] $shuffle1"; ?></p>
+            <p> <?php echo "$player1[1] $shuffle2"; ?></p>
+            <p>Total: <?php echo "$total1"; ?></p>
         </div>
+        <div class="card player2">
+            <h4>PLAYER 2: </h4>
+            <p> <?php echo "$player2[0] $shuffle3"; ?></p>
+            <p> <?php echo "$player2[1] $shuffle4"; ?></p>
+            <p>Total: <?php echo "$total2"; ?></p>
+        </div>
+    </div>
     
-    <h1>And the winner is <?php echo "$end" ?></h1>
+    <h2>And the winner is <?php echo "$end" ?></h2>
 
 </body>
 </html>
